@@ -1,2 +1,1 @@
-# three.js tut
-Three.js tutorial
+# getting-started-with-threejs
