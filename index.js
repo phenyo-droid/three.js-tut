@@ -22,4 +22,8 @@ const mat = new THREE.MeshBasicMaterial({
 const mesh = new THREE.Mesh(geo, mat);
 scene.add(mesh);
 
-renderer.render(scene, camera);
+function animate(){
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+
