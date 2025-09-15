@@ -16,14 +16,23 @@ camera.position.z = 2;
 const scene = new THREE.Scene();
 
 const geo = new THREE.IcosahedronGeometry(1.0, 2);
-const mat = new THREE.MeshBasicMaterial({
+const mat = new THREE.MeshStandardMaterial({
   color: 0x00ccff
 });
 const mesh = new THREE.Mesh(geo, mat);
 scene.add(mesh);
 
-function animate(){
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0x000000); 
+scene.add(hemiLight);
+
+function animate(t = 0) {
   requestAnimationFrame(animate);
+
+  // Optional: rotate the mesh so you can see it moving
+  mesh.rotation.x = t * 0.0005;
+  mesh.rotation.y = t * 0.001;
+
   renderer.render(scene, camera);
 }
 
+animate();
